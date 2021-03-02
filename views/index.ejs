@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloggy</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+    <div id="home">
+       <div id="nav">
+         <a href="/">Bloggy</a>
+         <%  if(loggedIn === true){ %>
+          <div id="btns">
+            <a href="/profile">Profile</a>
+            <a id="LogOutBtn" href="/logout">Log Me Out</a>
+          </div>
+            
+         <%  } else{ %>
+          <div id="btns">
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+          </div>
+         <%  } %>
+        
+       </div>
+      <div id="content">
+        <h1>Hey User,we've something really <br> good for you,  <span id="tdy">today.</span></h1>
+        <a href="/profile">Explore More <i class="ri-arrow-right-line"></i></a>
+        <div id="menu">
+          <div class="main">
+            <% if(results !== undefined){ %>
+             <% results.forEach(function(result){ %>
+              <div class="blgexmpl">
+                <div class="content">
+                  <h5><%= result.post %></h5>
+                </div>
+              </div>  
+            <% }) %>
+            <%   } else{ %>
+              <h4>NO POSTS !</h4>
+           <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
